@@ -15,7 +15,7 @@
           things to consider.
         </p>
         <p>Take a look at our player-card from the previous lesson</p>
-        <pre><code class="language-markup">{{state.playerCard}}</code></pre>
+        <pre><code class="language-markup">{{ state.playerCard }}</code></pre>
         <p>
           This snippet of HTML is currently set up to render a single player to
           the screen. Ideally we want all of the players to render using this
@@ -24,7 +24,7 @@
         </p>
         <p>Now look at how we can utilize the v-for directive.</p>
         <pre><code class="language-markup">&lt;div class="player-card" v-for="player in state.players"&gt;
-    {{state.playerCard}}
+    {{ state.playerCard }}
 &lt;/div&gt;</code></pre>
         <pre><code class="language-javascript">
 export default {
@@ -79,14 +79,10 @@ export default {
           so:
         </p>
         <pre><code class="language-markup">&lt;div class="player-card" v-for="(player, index) in state.players"&gt;
-  &lt;h5&gt;Player {{ state.index }}&lt;/h5&gt;{{state.playerCard}}&lt;/div&gt;</code></pre>
+  &lt;h5&gt;Player {{ state.index }}&lt;/h5&gt;{{ state.playerCard }}&lt;/div&gt;</code></pre>
         <p>Results:</p>
         <div class="d-flex align-items-center justify-content-around flex-wrap">
-          <div
-            class="player-card text-center"
-            v-for="(player, index) in state.players"
-            :key="player"
-          >
+          <div class="player-card text-center" v-for="(player, index) in state.players" :key="player">
             <h5>Player {{ index + 1 }}</h5>
             <div>
               <img class="img" :src="player.photo" />
@@ -104,8 +100,9 @@ export default {
         </div>
         <h5>Looping over an Objects Properties</h5>
         <p>
-          v-for can also be used to loop over objects, not just arrays.  When a v-for loops over an object, instead of an index and value,
-          the variables it aliases out are the `key : value` pairs of the object.  
+          v-for can also be used to loop over objects, not just arrays. When a v-for loops over an object, instead of an
+          index and value,
+          the variables it aliases out are the `key : value` pairs of the object.
           In our components data we have a blog object with the
           keys "title", "description", "author". We can use the v-for
           directive to automatically loop over the objects keys and gain
@@ -113,7 +110,7 @@ export default {
         </p>
         <pre><code class="language-markup">&lt;div class="blog" v-for="(value, key) in state.blog" :key="key"&gt;
   &lt;p&gt;
-    {{state.val2}}
+    {{ state.val2 }}
   &lt;/p&gt;
 &lt;/div&gt;</code></pre>
       </div>
@@ -132,7 +129,7 @@ export default {
   setup() {
     // @ts-ignore
     onMounted(() => Prism.highlightAll())
-    
+
     const state = reactive({
       val: "{{ }}",
       val2: "{{ key }}: {{ value }}",
